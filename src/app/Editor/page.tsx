@@ -42,6 +42,9 @@ export default function Page() {
           <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min p-4">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-semibold">XOR Codespace</h2>
+               <div className="text-l text-gray-800 mb-2">
+      Press Ctrl+Alt+N to run code
+    </div>
               <Select value={language} onValueChange={setLanguage}>
                 <SelectTrigger className="w-[180px]">
                   <SelectValue placeholder="Language" />
