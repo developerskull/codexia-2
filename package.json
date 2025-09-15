@@ -30,6 +30,7 @@
     "prismjs": "^1.30.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.6.0",
     "react-simple-code-editor": "^0.14.1",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
