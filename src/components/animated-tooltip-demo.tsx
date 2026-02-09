@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { initSocket } from "@/socket"; // Import the initSocket function
-import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 
 // Default profile images
 const profileImages = [
@@ -32,7 +31,7 @@ export default function AnimatedTooltipPreview() {
         const formattedMembers = members.map((member: any) => ({
           id: member.peopleId,
           name: member.name,
-          image: profileImages[member.peopleId - 1], // Convert 1-based to 0-based index
+          image: profileImages[member.peopleId - 1] || profileImages[0], // Convert 1-based to 0-based index
         }));
         setTeamMembers(formattedMembers);
       });
@@ -52,8 +51,23 @@ export default function AnimatedTooltipPreview() {
   }
 
   return (
-    <div className="flex flex-row items-center justify-center mb-10 w-full">
-      <AnimatedTooltip items={teamMembers} />
+    <div className="space-y-3">
+      {teamMembers.map((member) => (
+        <div key={member.id} className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
+          <div className="relative">
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-10 h-10 rounded-full object-cover border-2 border-primary/20"
+            />
+            <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-background"></div>
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium truncate">{member.name}</p>
+            <p className="text-xs text-muted-foreground">Active now</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

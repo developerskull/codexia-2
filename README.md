@@ -1,142 +1,219 @@
+# XOR+ - Real-time Collaborative Code Editor
 
-# XOR - Realtime Collaborative Code Editor ![Views Counter](https://views-counter.vercel.app/badge?pageId=https%3A%2F%2Fgithub%2Ecom%2FYashNuhash%2FXOR&leftColor=808080&rightColor=3469e5&type=total&label=Visitors&style=none)
+![XOR+](image.png)
 
-![XOR](image.png)
-
-XOR is a Realtime Collaborative Code Editor that Enables Real-time Code Collaboration. Built with Next.js, Socket.IO. It  Provides a Range of Powerful Features Like Instant Code Synchronization While Code Changes to Across all the Users
-
-## Academic Information
-
-### Team Name: Red_Asgardians
-
-- Ashraful Nuhash - 2001011040
-- Nafis Hasan Arif - 2001011048
-
-### Course Name
-
-#### Web Engineering Lab Course (CSE-3106)
-
-### Instructor
-
-#### Md. Mynoddin, Assistant Professor, Department of CSE, RMSTU
-
-## 🎥 Demo Video: 
-
-Click the image above to watch the demo video!
-
-[![XOR: Real-time Code Collaboration Tool](https://img.youtube.com/vi/Kj2NOn6xkfo/maxresdefault.jpg)](https://youtu.be/Kj2NOn6xkfo)
-
-
-
-## Behaviour of Socket.io in XOR
-
-![alt text](<XOR - Real-time Collaborative Code Editor - visual selection (1).png>)
+XOR+ is a modern, real-time collaborative code editor that enables seamless code collaboration. Built with Next.js 15, Socket.IO, and TypeScript, it provides powerful features for instant code synchronization and team collaboration.
 
 ## 🚀 Key Features
 
-### ✨ Real-time Collaboration
-- **Live Code Synchronization**: Multiple users can edit code simultaneously with real-time updates
-- **Room-based Collaboration**: Create or join coding rooms with unique room IDs
-- **User Presence**: See who's currently in the room with real-time user indicators
-- **Profile System**: Each user gets a unique avatar and profile in the collaboration space
+### Real-time Collaboration
+- **Instant Code Synchronization** - See code changes across all users in real-time
+- **Live User Presence** - View team members currently in the room with avatars
+- **Typing Indicators** - Know when someone is actively coding
+- **Multi-user Support** - Collaborate with multiple developers simultaneously
 
-### </> Code Editor
-- **Multi-language Support**: Supports multiple programming languages including:
-  - JavaScript/JSX
-  - TypeScript/TSX
-  - HTML/CSS
-  - C++
-  - Java
-  - Python
-- **Syntax Highlighting**: Built-in syntax highlighting for all supported languages
-- **Real-time Code Sync**: Instantaneous code synchronization across all users in the room
+### Code Editor
+- **Syntax Highlighting** - Support for multiple programming languages
+- **Code Execution** - Run code directly in the browser (Ctrl+Alt+N)
+- **Language Support** - JavaScript, TypeScript, Python, Java, C++, HTML, CSS, JSX, TSX
+- **Dark Theme** - Easy on the eyes for long coding sessions
 
-### 🎨 User Interface
-- **Modern Design**: Clean, intuitive interface with dark mode support
-- **Responsive Layout**: Works seamlessly across desktop and mobile devices
-- **Interactive UI Elements**:
-  - Animated tooltips
-  - Google Gemini-style effects
-  - Dynamic sidebar for room management
-  - Custom moving borders and animations
+### User Experience
+- **Room-based Collaboration** - Create or join rooms with unique IDs
+- **User Profiles** - Display names and avatars for each participant
+- **Responsive Design** - Works seamlessly on desktop and mobile
+- **Modern UI** - Clean, minimalist design with smooth animations
 
-### 📢 Room Management
-- **Easy Room Creation**: Quick and simple process to create new coding rooms
-- **Room ID Sharing**: Copy room ID functionality for easy sharing
-- **Leave Room**: Graceful room exit with automatic cleanup
-- **Room State Management**: Persistent room state across sessions
+## 🛠️ Tech Stack
 
-### 🎯 Navigation & Layout
-- **Breadcrumb Navigation**: Easy navigation between different sections
-- **Sidebar Management**: Collapsible sidebar with room information
-- **Language Selector**: Easy switching between programming languages
-- **Team Member Display**: See all team members in the collaboration space
+### Frontend
+- **Next.js 15.2.5** - React framework with Turbopack
+- **React 19** - Latest React features
+- **TypeScript** - Type-safe development
+- **Tailwind CSS 4** - Utility-first styling
+- **Framer Motion** - Smooth animations
+- **Shadcn/ui** - Beautiful UI components
 
-### 🔥 Additional Features
-- **Toast Notifications**: Informative notifications for user actions
-- **Error Handling**: Robust error handling and user feedback
-- **Persistent Connections**: WebSocket-based reliable connections
-- **Cross-browser Support**: Works across modern web browsers
+### Backend
+- **Node.js** - JavaScript runtime
+- **Express** - Web server framework
+- **Socket.IO** - Real-time bidirectional communication
+- **CORS** - Cross-origin resource sharing
 
-## 🛠️ Technical Stack
+### Code Execution
+- **Judge0 API** - Secure code compilation and execution
 
-- **Frontend**: Next.js, React, TypeScript
-- **Backend**: Node.js, Express
-- **Real-time Communication**: Socket.IO
-- **Styling**: Tailwind CSS, Radix UI
-- **Code Editing**: Custom implementation with syntax highlighting
-- **State Management**: React Hooks and Context
-- **Deployment**: 
-  - Frontend: Vercel
-  - Backend: Render
+## 📦 Installation
 
-## 🔮 Coming Soon
-- Animated tooltips in the editor
-- Enhanced collaboration features
-- More language support
-- Additional customization options
+### Prerequisites
+- Node.js 18+ installed
+- npm or pnpm package manager
 
-## 🚀 Getting Started
+### Frontend Setup
 
-1. Visit [XOR Code Editor](https://xor-code.vercel.app)
-2. Click `Get Started`
-3. Click `Generate New Room ID` or Paste Your Collaborator Provided ID
-3. Enter Your Name and Click `Join Now`
-4. Share the room ID with your teammates
-5. Start coding together!
-
-## 💻 Local Development
-
+1. Clone the repository:
 ```bash
-# Clone the repository
-git clone https://github.com/YashNuhash/XOR.git
+git clone https://github.com/developerskull/XOR-plus.git
+cd XOR-plus
+```
 
-# Install dependencies
-pnpm install
-
-# Start the development server
-pnpm run dev
-
-# In a separate terminal, You have to start the backend server
-# Clone backend Repository 
-git clone https://github.com/YashNuhash/XOR-backend.git
-
-# Go to the XOR-backend folder
-cd XOR-backend
-
-# Install dependencies
+2. Install dependencies:
+```bash
 npm install
+```
 
-# Start the backend Server
+3. Configure environment variables:
+Create a `.env.local` file in the root directory:
+```env
+# Backend URL for Socket.IO connection
+NEXT_PUBLIC_BACKEND_URL=http://localhost:3001
+
+# RapidAPI configuration for code compilation (optional)
+NEXT_PUBLIC_RAPID_API_KEY=your_rapidapi_key_here
+NEXT_PUBLIC_RAPID_API_HOST=your_rapidapi_host_here
+```
+
+4. Start the development server:
+```bash
 npm run dev
 ```
 
-## 📝 License
+The frontend will be available at `http://localhost:3000`
 
-[MIT License](LICENSE)
+### Backend Setup
 
-## 👥 Contributors
+1. Clone the backend repository:
+```bash
+git clone https://github.com/YashNuhash/XOR-backend.git
+cd XOR-backend
+```
 
-- [Ashraful Nuhash](https://github.com/YashNuhash)
-- [Nafis Hasan](https://github.com/NafisHasan2020) 
+2. Install dependencies:
+```bash
+npm install
+```
 
+3. Start the backend server:
+```bash
+npm start
+```
+
+The backend will run on `http://localhost:3001`
+
+## 🎯 Usage
+
+1. **Access the Application**
+   - Open `http://localhost:3000` in your browser
+
+2. **Create or Join a Room**
+   - Navigate to the Collaborate page
+   - Enter your name
+   - Click "Generate Now" to create a new room OR paste an existing Room ID
+   - Click "Join Room"
+
+3. **Start Coding**
+   - Select your programming language from the dropdown
+   - Write your code in the editor
+   - Press `Ctrl+Alt+N` to execute code
+   - Share the Room ID with teammates to collaborate
+
+4. **Collaborate in Real-time**
+   - See team members in the left sidebar
+   - Watch live typing indicators
+   - Code changes sync instantly across all users
+
+## 🔧 Available Scripts
+
+### Frontend
+```bash
+npm run dev      # Start development server with Turbopack
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
+
+### Backend
+```bash
+npm start        # Start backend server
+npm run dev      # Start with nodemon (auto-reload)
+```
+
+## 🌐 Deployment
+
+### Frontend (Vercel)
+1. Push your code to GitHub
+2. Import project in Vercel
+3. Add environment variables
+4. Deploy
+
+### Backend (Heroku/Railway)
+1. Push backend code to GitHub
+2. Create new app on Heroku/Railway
+3. Set PORT environment variable
+4. Deploy
+
+## 📁 Project Structure
+
+```
+XOR-plus/
+├── src/
+│   ├── app/                    # Next.js app directory
+│   │   ├── Collaborate/        # Room join page
+│   │   ├── Editor/             # Code editor page
+│   │   └── page.tsx            # Landing page
+│   ├── components/             # React components
+│   │   ├── ui/                 # UI components
+│   │   ├── code-editor.tsx     # Main editor component
+│   │   ├── login.tsx           # Room join form
+│   │   └── app-sidebar.tsx     # Sidebar with team members
+│   ├── services/               # API services
+│   └── socket.jsx              # Socket.IO client setup
+├── public/                     # Static assets
+└── package.json                # Dependencies
+```
+
+## 🔑 Key Components
+
+### Socket.IO Events
+- `joinRoom` - User joins a collaboration room
+- `leaveRoom` - User leaves the room
+- `codeChange` - Code update from a user
+- `codeUpdate` - Broadcast code to all users
+- `updateRoom` - Room member list update
+- `userTyping` - User started typing
+- `userStoppedTyping` - User stopped typing
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 👨‍💻 Author
+
+**Kunal Ahire**
+- GitHub: [@developerskull](https://github.com/developerskull)
+- LinkedIn: [Kunal Ahire](https://www.linkedin.com/in/kunal-ahire-9592aa300)
+
+## 🙏 Acknowledgments
+
+- Original XOR project by [YashNuhash](https://github.com/YashNuhash)
+- Socket.IO for real-time communication
+- Next.js team for the amazing framework
+- Shadcn/ui for beautiful components
+
+## 📞 Support
+
+For support, email or open an issue in the GitHub repository.
+
+---
+
+Made with ❤️ by Kunal Ahire

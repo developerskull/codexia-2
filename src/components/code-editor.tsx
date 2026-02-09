@@ -87,8 +87,28 @@ export function CodeEditor({
   // Socket initialization effect
   useEffect(() => {
     const init = async () => {
-      const socketInstance = await initSocket()
-      setSocket(socketInstance)
+      try {
+        const socketInstance = await initSocket()
+        setSocket(socketInstance)
+        
+        socketInstance.on('connect', () => {
+          console.log('✅ Connected to backend server')
+          toast.success('Connected to collaboration server')
+        })
+        
+        socketInstance.on('connect_error', (error) => {
+          console.error('❌ Backend connection failed:', error)
+          toast.error('Cannot connect to collaboration server. Please start the backend on port 3001.')
+        })
+        
+        socketInstance.on('disconnect', () => {
+          console.log('⚠️ Disconnected from backend server')
+          toast.error('Disconnected from collaboration server')
+        })
+      } catch (error) {
+        console.error('Socket initialization error:', error)
+        toast.error('Failed to initialize collaboration')
+      }
     }
     init()
 
@@ -154,8 +174,11 @@ export function CodeEditor({
       if (storedRoomId) {
         setRoomId(storedRoomId)
       } else {
-        console.error("Room ID is missing in both props and localStorage. Redirecting to login.")
-        router.push("/")
+        console.warn("⚠️ No room ID found. Please join a room first.")
+        toast.error("Please join a room first")
+        setTimeout(() => {
+          router.push("/Collaborate")
+        }, 1500)
       }
     }
   }, [propRoomId, router])

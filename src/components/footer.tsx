@@ -1,32 +1,15 @@
 import Link from "next/link"
-import AnimatedTooltipPreview from "./contributors-demo"
 
 export default function FooterSection() {
   return (
     <footer className="py-16 md:py-32 bg-black text-white relative min-h-[300px] w-full">
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
-      <h2 className="text-gray-300 text-2xl font-bold mb-8 align-center text-center"> 🎖️ Meet The Contributors : </h2>
-      <AnimatedTooltipPreview />
 
       {/* Background animation */}
       <div className="mx-auto max-w-5xl px-6 relative z-10 h-full flex flex-col items-center justify-center">
         <div className="flex justify-center gap-8 mb-8">
           <Link
-            href="https://x.com/YashNuhash"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X/Twitter"
-            className="text-gray-400 hover:text-white transition-colors duration-200"
-          >
-            <svg className="size-6" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z"
-              ></path>
-            </svg>
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/ashraful-nuhash-2192871b2"
+            href="https://www.linkedin.com/in/kunal-ahire-9592aa300"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -40,7 +23,7 @@ export default function FooterSection() {
             </svg>
           </Link>
           <Link
-            href="https://github.com/YashNuhash"
+            href="https://github.com/developerskull"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -54,7 +37,7 @@ export default function FooterSection() {
             </svg>
           </Link>
         </div>
-        <span className="text-gray-400 text-center text-sm">© {new Date().getFullYear()} XOR, All rights reserved</span>
+        <span className="text-gray-400 text-center text-sm">© {new Date().getFullYear()} XOR+, All rights reserved</span>
       </div>
     </footer>
   )

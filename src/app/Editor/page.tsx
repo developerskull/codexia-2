@@ -41,7 +41,7 @@ export default function Page() {
         <div className="flex flex-1 flex-col gap-4 p-4">
           <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min p-4">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold">XOR Codespace</h2>
+              <h2 className="text-xl font-semibold">XOR+ Codespace</h2>
                <div className="text-l text-gray-800 mb-2">
       Press Ctrl+Alt+N to run code
     </div>

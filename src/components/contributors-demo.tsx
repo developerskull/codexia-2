@@ -3,19 +3,19 @@ import { AnimatedTooltip } from "@/components/ui/animated-tooltip2"
 const people = [
   {
     id: 1,
-    name: "Ashraful Nuhash",
-    designation: "CSE @RMSTU",
+    name: "Kunal Ahire",
+    designation: "Developer",
     image:
       "https://i.imgur.com/GBZkd9f.png",
-    link: "https://github.com/YashNuhash",
+    link: "https://github.com/kunalahire",
   },
   {
     id: 2,
-    name: "Nafis Hasan",
-    designation: "CSE @RMSTU",
+    name: "Jahnavi Sonwane",
+    designation: "Developer",
     image:
       "https://i.imgur.com/bBP1Xzk.png",
-    link:"https://github.com/NafisHasan2020",
+    link:"https://github.com/jahnavisonwane",
   }
 ]
 

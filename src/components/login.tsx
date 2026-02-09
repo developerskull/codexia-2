@@ -58,47 +58,70 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
-        <CardHeader className="text-center">
-          <CardTitle className="text-xl">Welcome back</CardTitle>
-          <CardDescription>Paste Your Room ID</CardDescription>
+      <Card className="border-gray-800 bg-gray-900/50 backdrop-blur-xl shadow-2xl">
+        <CardHeader className="text-center space-y-2">
+          <CardTitle className="text-2xl font-bold text-white">Welcome Back</CardTitle>
+          <CardDescription className="text-gray-400">Enter your room details to continue</CardDescription>
         </CardHeader>
         <CardContent>
           <form>
             <div className="grid gap-6">
               <div className="grid gap-6">
                 <div className="grid gap-2">
-                  <Label htmlFor="roomId">ROOM ID</Label>
+                  <Label htmlFor="roomId" className="text-gray-300 font-medium">Room ID</Label>
                   <Input
                     id="roomId"
-                    type="text" // Ensure the type is correct
+                    type="text"
                     value={roomId}
-                    onChange={(e) => setRoomId(e.target.value)} // Correctly update state
-                    placeholder="Enter Your Room ID"
+                    onChange={(e) => setRoomId(e.target.value)}
+                    placeholder="Enter or generate a room ID"
+                    className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-purple-500 focus:ring-purple-500/20"
                     required
                   />
                 </div>
                 <div className="grid gap-2">
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="name" className="text-gray-300 font-medium">Your Name</Label>
                   <Input
                     id="name"
-                    type="text" // Ensure the type is correct
+                    type="text"
                     value={name}
-                    onChange={(e) => setName(e.target.value)} // Correctly update state
-                    placeholder="Enter Your Name"
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter your display name"
+                    className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-purple-500 focus:ring-purple-500/20"
                     required
                   />
                 </div>
                 <Link href="/Editor" onClick={handleJoinNow}>
-                  <Button type="button" className="w-full cursor-pointer">
-                    Join Now
+                  <Button 
+                    type="button" 
+                    className="w-full cursor-pointer bg-white hover:bg-gray-100 text-black font-semibold shadow-lg transition-all border border-gray-200"
+                  >
+                    Join Room
                   </Button>
                 </Link>
               </div>
-              <div className="text-center text-black-500">
-                Don&apos;t have Any Room ID?{" "}
-                <a id="link" onClick={createNewRoom} href="#" className="underline underline-offset-4">
-                  Generate Now
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t border-gray-700" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-gray-900 px-2 text-gray-400">Or</span>
+                </div>
+              </div>
+              <div className="text-center">
+                <p className="text-sm text-gray-400 mb-2">
+                  Don&apos;t have a room ID?
+                </p>
+                <a 
+                  id="link" 
+                  onClick={createNewRoom} 
+                  href="#" 
+                  className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                  </svg>
+                  Generate New Room ID
                 </a>
               </div>
             </div>

@@ -30,7 +30,7 @@ export const HeroHeader = () => {
                             href="/"
                             aria-label="home"
                             className="flex items-center space-x-2">
-                            <h1 className="text-gray-300 text-0.5xl font-bold sm:text-0.5xl"><span>&lt;XOR/&gt;</span></h1>
+                            <h1 className="text-gray-300 text-0.5xl font-bold sm:text-0.5xl"><span>&lt;XOR+/&gt;</span></h1>
                         </Link>
                         
                         <div className="flex items-center">

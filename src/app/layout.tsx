@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "XOR - A Collaborative Code Editor",
+  title: "XOR+ - A Collaborative Code Editor",
   description: "A Collaborative Code Editor that Allows You to Code with Your Friends in Realtime.",
 };
 

@@ -1,6 +1,6 @@
 "use client"
 import { motion, useAnimationControls, type MotionValue } from "motion/react"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
@@ -16,67 +16,61 @@ export const GoogleGeminiEffect = ({
   const controls3 = useAnimationControls()
   const controls4 = useAnimationControls()
   const controls5 = useAnimationControls()
-  const isMounted = useRef(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    // Set mounted ref to true
-    isMounted.current = true
+    // Set mounted state to true after component mounts
+    setIsMounted(true)
 
-    // Cleanup function to set mounted to false when component unmounts
+    // Cleanup function
     return () => {
-      isMounted.current = false
+      setIsMounted(false)
     }
   }, [])
 
   useEffect(() => {
-    if (!autoAnimate || !isMounted.current) return
+    if (!autoAnimate || !isMounted) return
 
-    let animationFrame: number
     let timeoutId: NodeJS.Timeout
 
     const animatePaths = async () => {
-      if (!isMounted.current) return
+      if (!isMounted) return
 
       try {
-        // Use a small delay to ensure component is fully mounted
-        await new Promise((resolve) => setTimeout(resolve, 100))
-
-        if (!isMounted.current) return
-
         await controls1.start({
           pathLength: 1,
           transition: { duration: 2, ease: "easeInOut" },
         })
 
-        if (!isMounted.current) return
+        if (!isMounted) return
 
         await controls2.start({
           pathLength: 1,
           transition: { duration: 2, ease: "easeInOut" },
         })
 
-        if (!isMounted.current) return
+        if (!isMounted) return
 
         await controls3.start({
           pathLength: 1,
           transition: { duration: 2, ease: "easeInOut" },
         })
 
-        if (!isMounted.current) return
+        if (!isMounted) return
 
         await controls4.start({
           pathLength: 1,
           transition: { duration: 2, ease: "easeInOut" },
         })
 
-        if (!isMounted.current) return
+        if (!isMounted) return
 
         await controls5.start({
           pathLength: 1,
           transition: { duration: 2, ease: "easeInOut" },
         })
 
-        if (!isMounted.current) return
+        if (!isMounted) return
 
         // Reset all paths
         controls1.set({ pathLength: 0 })
@@ -86,25 +80,30 @@ export const GoogleGeminiEffect = ({
         controls5.set({ pathLength: 0 })
 
         // Schedule next animation cycle
-        if (isMounted.current) {
+        if (isMounted) {
           timeoutId = setTimeout(() => {
-            animationFrame = requestAnimationFrame(animatePaths)
+            if (isMounted) {
+              animatePaths()
+            }
           }, 500)
         }
       } catch (error) {
-        console.error("Animation error:", error)
+        // Silently handle animation errors
       }
     }
 
-    // Start the animation with requestAnimationFrame to ensure DOM is ready
-    animationFrame = requestAnimationFrame(animatePaths)
+    // Start animation after a delay to ensure component is fully mounted
+    timeoutId = setTimeout(() => {
+      if (isMounted) {
+        animatePaths()
+      }
+    }, 300)
 
     // Cleanup function
     return () => {
-      cancelAnimationFrame(animationFrame)
-      clearTimeout(timeoutId)
+      if (timeoutId) clearTimeout(timeoutId)
     }
-  }, [autoAnimate, controls1, controls2, controls3, controls4, controls5])
+  }, [autoAnimate, isMounted, controls1, controls2, controls3, controls4, controls5])
 
   return (
     <div className="relative w-full h-[200px]">

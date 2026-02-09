@@ -26,7 +26,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <GalleryVerticalEnd className="size-4" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">XOR</span>
+                  <span className="font-semibold">XOR+</span>
                 </div>
               </a>
             </SidebarMenuButton>
@@ -36,7 +36,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <div className="p-4">
           <h3 className="mb-4 text-sm font-medium">Team Members</h3>
-          <AnimatedTooltipPreview />
+          <div className="space-y-3">
+            <AnimatedTooltipPreview />
+          </div>
         </div>
       </SidebarContent>
       <SidebarFooter>
